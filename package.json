@@ -1,0 +1,20 @@
+{
+	"name": "playwrightautomation",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npx playwright test --headed",
+		"allureclear": "rm -r allure-results/ allure-report",
+		"allurereport": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+		"webtest": "npx playwright test --grep @web",
+		"safari": "npx playwright test --config playwright.config.js --project=safari"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@playwright/test": "^1.26.0",
+		"allure-playwright": "^2.0.0-beta.19"
+	}
+}

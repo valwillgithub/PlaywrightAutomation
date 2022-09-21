@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+.env
+test-examples
+/allure-results
+/allure-report
+/screenshots
+.state.json
+state.json
+.DS_Store
