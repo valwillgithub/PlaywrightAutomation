@@ -63,7 +63,7 @@ const config = {
 			name: 'chrome',
 			use: {
 				...devices['Desktop Chrome'],
-				headless: false,
+				headless: true,
 				screenshot: 'only-on-failure',
 				video: 'retain-on-failure',
 				ignoreHTTPSErrors: true,
@@ -71,16 +71,16 @@ const config = {
 				trace: 'retain-on-failure',
 			},
 		},
-		{
-			name: 'safari',
-			use: {
-				browserName: 'webkit',
-				screenshot: 'only-on-failure',
-				...devices['iPhone 13 Pro Max'],
-				headless: false,
-				video: 'retain-on-failure',
-			},
-		},
+		// {
+		// 	name: 'safari',
+		// 	use: {
+		// 		browserName: 'webkit',
+		// 		screenshot: 'only-on-failure',
+		// 		...devices['iPhone 13 Pro Max'],
+		// 		headless: false,
+		// 		video: 'retain-on-failure',
+		// 	},
+		// },
 	],
 	// 	{
 	// 	name: 'firefox',
