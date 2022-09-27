@@ -11,11 +11,11 @@ test('CodeGen Test', async ({ page }) => {
 	await page.locator('[aria-label="Search"]').fill('rahul shetty');
 	// Press Enter
 	await page.locator('[aria-label="Search"]').press('Enter');
-	await expect
-		.soft(page)
-		.toHaveURL(
-			'https://www.google.com/search?q=rahul+shetty&source=hp&ei=yxYAY9PlNciA8gKXoKjIBg&iflsig=AJiK0e8AAAAAYwAk2yLOg-3DCnOAbjIqY5GXdTI9ynlL&ved=0ahUKEwiT9-HegdT5AhVIgFwKHRcQCmkQ4dUDCAk&uact=5&oq=rahul+shetty&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOg4IABCPARDqAhCMAxDlAjoOCC4QjwEQ6gIQjAMQ5QI6EQguEIAEELEDEIMBEMcBENEDOg4ILhCABBCxAxCDARDUAjoLCAAQgAQQsQMQgwE6DgguEIAEELEDEMcBENEDOggILhCxAxCDAToFCC4QgAQ6CAgAELEDEIMBOggILhCABBCxAzoLCC4QgAQQsQMQgwE6CwguEIAEELEDENQCOg4ILhCxAxCDARDHARCvAToICAAQgAQQsQM6CAguEIAEENQCUJsFWO4zYI9HaAFwAHgAgAFDiAG4BZIBAjEymAEAoAEBsAEK&sclient=gws-wiz'
-		);
+	// await expect
+	// 	.soft(page)
+	// 	.toHaveURL(
+	// 		'https://www.google.com/search?q=rahul+shetty&source=hp&ei=yxYAY9PlNciA8gKXoKjIBg&iflsig=AJiK0e8AAAAAYwAk2yLOg-3DCnOAbjIqY5GXdTI9ynlL&ved=0ahUKEwiT9-HegdT5AhVIgFwKHRcQCmkQ4dUDCAk&uact=5&oq=rahul+shetty&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOg4IABCPARDqAhCMAxDlAjoOCC4QjwEQ6gIQjAMQ5QI6EQguEIAEELEDEIMBEMcBENEDOg4ILhCABBCxAxCDARDUAjoLCAAQgAQQsQMQgwE6DgguEIAEELEDEMcBENEDOggILhCxAxCDAToFCC4QgAQ6CAgAELEDEIMBOggILhCABBCxAzoLCC4QgAQQsQMQgwE6CwguEIAEELEDENQCOg4ILhCxAxCDARDHARCvAToICAAQgAQQsQM6CAguEIAEENQCUJsFWO4zYI9HaAFwAHgAgAFDiAG4BZIBAjEymAEAoAEBsAEK&sclient=gws-wiz'
+	// 	);
 	// Click text=Rahul Shetty Academyhttps://rahulshettyacademy.com >> h3
 	await page
 		.locator('text=Rahul Shetty Academyhttps://rahulshettyacademy.com >> h3')

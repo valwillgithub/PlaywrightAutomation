@@ -12,7 +12,7 @@ test.beforeAll(async ({ browser }) => {
 	await page.locator('#userPassword').type('Kumasi117');
 	await page.locator("[value='Login']").click();
 	await page.waitForLoadState('networkidle');
-	await context.storageState({ path: '.state.json' });
+	await context.storageState({ path: 'state.json' });
 	await context.close();
 	webContext = await browser.newContext({ storageState: 'state.json' });
 

@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "npx playwright test --headed",
+		"headless": "npx playwright test",
 		"allureclear": "rm -r allure-results/ allure-report",
 		"allurereport": "allure generate allure-results --clean -o allure-report && allure open allure-report",
 		"webtest": "npx playwright test --grep @web",

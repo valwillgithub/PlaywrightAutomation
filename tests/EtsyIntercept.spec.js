@@ -19,7 +19,6 @@ test('@web Etsy Intercept Test ', async () => {
 	await page.keyboard.press('Enter');
 
 	//await page.click('text=Accept');
-
 	await browser.close();
 });
 
