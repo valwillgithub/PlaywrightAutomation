@@ -1,6 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
 /* 
+Pass Command To NPM Script
+Script => "singletest": "npx playwright test --headed",
+Command Line => npm run singletest -- UIBasictest
+
 npx playwright test
 Runs the end-to-end tests.
 
