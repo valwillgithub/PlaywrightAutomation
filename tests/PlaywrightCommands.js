@@ -32,8 +32,12 @@ Runs one project in a config file
 npx playwright test UIBasicstest --config playwright.config.js --project=chrome --grep @Val
 Runs one project in a config file with a tag
 
-
 npx playwright codegen http://google.com
 To use Record and Play feature
 
+npx playwright show-report
+To view playwright report.
+
+npm run test -- /src/tests/GetAllproducts.spec.js
+Pass a parameter to npm script in package.json
 */
