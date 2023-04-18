@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 //const { LoginPage } = require('../pageobjects/LoginPage');
 //const { DashboardPage } = require('../pageobjects/DashboardPage');
 const { POManager } = require('../pageobjects/POManager');
-const testdata = JSON.parse(JSON.stringify(require('../utils/Testdata.json')));
+const testdata = JSON.parse(JSON.stringify(require('../utils/Testdata2.json')));
 //import * as testdata from '../utils/Testdata.json';
 
 for (const data of testdata) {

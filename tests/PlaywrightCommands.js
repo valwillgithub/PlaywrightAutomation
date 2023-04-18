@@ -17,7 +17,8 @@ Runs the tests in a specific file.
 npx playwright test --debug
 Runs the tests in debug mode.
 
-npx playwright codegen
+npx playwright codegen Record and Play feature
+npx playwright codegen http://google.com
 Auto generate tests with Codegen.
 
 npx playwright test UIBasicstest --debug

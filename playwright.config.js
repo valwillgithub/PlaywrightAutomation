@@ -42,6 +42,7 @@ const config = {
       },
     ],
     ['html'],
+    ['list'],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -69,7 +70,7 @@ const config = {
         video: 'retain-on-failure',
         ignoreHTTPSErrors: true,
         permissions: ['geolocation'],
-        trace: 'retain-on-failure',
+        trace: 'on',
       },
     },
     // {
