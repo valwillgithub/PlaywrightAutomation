@@ -1,31 +1,31 @@
 {
-  "name": "playwrightautomation",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "npx playwright test --headed",
-    "headless": "npx playwright test",
-    "allureclear": "rm -r allure-results/ allure-report",
-    "allurereport": "allure generate allure-results --clean -o allure-report && allure open allure-report",
-    "webtest": "npx playwright test --grep @web",
-    "safari": "npx playwright test --config playwright.config.js --project=safari",
-    "report": "npx playwright show-report",
-    "onetest": "npx playwright test tests/WebApiPart1_b.spec.js --headed",
-    "debug": "npx playwright test tests/ClientApp.spec.js --headed --debug",
-    "valdebug": "npx playwright test tests/LaunchBrowser.test.ts --headed",
-    "lint": "eslint ./"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@axe-core/playwright": "^4.6.1",
-    "@playwright/test": "^1.32.1",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "allure-playwright": "^2.1.0",
-    "eslint": "^8.37.0",
-    "typescript": "^5.0.3"
-  }
+	"name": "playwrightautomation",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npx playwright test --headed",
+		"headless": "npx playwright test",
+		"allureclear": "rm -r allure-results/ allure-report",
+		"allurereport": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+		"webtest": "npx playwright test --grep @web",
+		"safari": "npx playwright test --config playwright.config.js --project=safari",
+		"report": "npx playwright show-report",
+		"onetest": "npx playwright test tests/WebApiPart1_b.spec.js --headed",
+		"debug": "npx playwright test tests/ClientApp.spec.js --headed --debug",
+		"valdebug": "npx playwright test tests/mobile.test.ts",
+		"lint": "eslint ./"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@axe-core/playwright": "^4.6.1",
+		"@playwright/test": "^1.32.1",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
+		"allure-playwright": "^2.1.0",
+		"eslint": "^8.37.0",
+		"typescript": "^5.0.3"
+	}
 }
