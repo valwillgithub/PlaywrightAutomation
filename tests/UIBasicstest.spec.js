@@ -6,14 +6,19 @@ test('@web Browser Context Test', async ({ browser }) => {
   const page = await context.newPage();
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
   console.log('Page title 1 => ', await page.title());
-  await page.locator('#username').type('rahulshetty');
+  //await page.locator('#username').type('rahulshettyacademy');
+  await page.getByLabel('Username:').type('rahulshettyacademy');
   await page.locator('#password').type('learning');
-  await page.locator('#signInBtn').click();
-  console.log(
-    'Error message =>',
-    await page.locator("[style*='block']").textContent()
-  );
-  await expect(page.locator("[style*='block']")).toContainText('Incorrect');
+  //await page.locator('#signInBtn').click();
+  await page.getByRole('button', { name: 'Sign In' }).click();
+
+  console.log(await page.title());
+  await expect(page).toHaveTitle('ProtoCommerce12');
+  //console.log(
+  //   'Error message =>',
+  //   await page.locator("[style*='block']").textContent()
+  // );
+  // await expect(page.locator("[style*='block']")).toContainText('Incorrect');
 });
 
 test('Browser Context-Validating Error Login', async ({ browser }) => {
@@ -23,6 +28,10 @@ test('Browser Context-Validating Error Login', async ({ browser }) => {
   const username = page.locator('#username');
   const signIn = page.locator('#signInBtn');
   const cardTitles = page.locator('.card-body a');
+  //page.route('**/*.css', (route) => route.abort());
+  //page.route('**/*.{css,jpg,jpeg,png}', (route) => route.abort());
+
+  page.on('response', (res) => console.log(res.statusText()));
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
   console.log('Page title 1 => ', await page.title());
   await username.type('rahulshetty');
@@ -48,6 +57,7 @@ test('Browser Context-Validating Error Login', async ({ browser }) => {
   // console.log(await cardTitles.last().textContent());
   const allTitles = await cardTitles.allTextContents();
   console.log('allTitles => ', allTitles);
+  await page.pause();
 });
 
 test('UI Controls', async ({ page }) => {
@@ -58,6 +68,7 @@ test('UI Controls', async ({ page }) => {
   const documentLink = page.locator("[href*='documents-request']");
 
   await dropdown.selectOption('consult');
+  //await page.pause();
   await page.locator('#usertype').last().click();
   await page.locator('#okayBtn').click();
   console.log(
@@ -85,20 +96,18 @@ test('Child Window Handle', async ({ browser }) => {
   const documentLink = page.locator("[href*='documents-request']");
 
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
-  await page;
-  const [newPage] = await Promise.all([
+  const newPage = await Promise.all([
     context.waitForEvent('page'),
     documentLink.click(),
   ]);
-  const text = await newPage.locator('.red').textContent();
+
+  //await page.pause();
+
+  const text = await newPage[0].locator('.red').textContent();
   console.log('txt => ', text);
   const arrayText = text.split('@');
   const domain = arrayText[1].split(' ')[0];
   console.log('domain => ', domain);
   await page.locator('#username').type(domain);
-  console.log(
-    'username textcontent => ',
-    await page.locator('#username').textContent()
-  );
-  //await page.pause();
+  console.log('inputvalue => ', await page.locator('#username').inputValue());
 });

@@ -103,7 +103,7 @@ test('Use Storage Stage Bypass Login', async () => {
 });
 
 //===============================================================
-test.only('Use Storage Stage Print Titles', async () => {
+test('Use Storage Stage Print Titles', async () => {
   const page = await webContext.newPage();
   //await page.pause();
   await page.goto('https://rahulshettyacademy.com/client');

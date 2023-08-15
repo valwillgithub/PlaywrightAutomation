@@ -1,33 +1,33 @@
-const { expect } = require('@playwright/test');
-const { customtest } = require('../utils/testfixture');
-const { POManager } = require('../pageobjects/POManager');
-//const testdata = JSON.parse(JSON.stringify(require('../utils/Testdata.json')));
+import { expect } from '@playwright/test';
+import test from '../utils/testfixture';
+const testdata = JSON.parse(JSON.stringify(require('../utils/Testdata.json')));
+//import * as testdata from '../utils/Testdata.json';
 
-customtest(`Ecommerce Test Using Fixture`, async ({ page, testData }) => {
-	const poManager = new POManager(page);
-	const loginPage = poManager.getLoginPage();
-	await loginPage.navigateTo(testData.url);
-	await loginPage.login(testData.email, testData.password);
-	const dashboard = poManager.getDashboardPage();
-	await dashboard.searchProduct(testData.productName);
-	await dashboard.gotoCart();
+for (const data of testdata) {
+  test(`Ecommerce Test ${data.productName}`, async ({
+    loginPage,
+    dashboardPage,
+    cartPage,
+    paymentPage,
+    orderHistoryPage,
+  }) => {
+    await loginPage.navigateTo(data.url);
+    await loginPage.login(data.email, data.password);
+    await dashboardPage.searchProduct(data.productName);
+    await dashboardPage.gotoCart();
 
-	const cartPage = poManager.getCartPage();
-	await cartPage.verifyProductDisplayed(testData.productName);
-	await cartPage.clickCheckout();
+    await cartPage.verifyProductDisplayed(data.productName);
+    await cartPage.clickCheckout();
+    await paymentPage.selectCountry('gha', 'Ghana');
+    await paymentPage.verifyEmail(data.email);
+    await paymentPage.placeOrder();
+    await paymentPage.verifyOrderConfirmationMessage();
+    let orderId = await paymentPage.getOrderId();
 
-	const paymentPage = poManager.getPaymentPage();
-	await paymentPage.selectCountry('gha', 'Ghana');
-	await paymentPage.verifyEmail(testData.email);
-	await paymentPage.placeOrder();
-	await paymentPage.verifyOrderConfirmationMessage();
-	let orderId = await paymentPage.getOrderId();
+    await dashboardPage.clickMyorders();
 
-	await dashboard.clickMyorders();
-
-	const orderHistoryPage = poManager.getOrderHistoryPage();
-	await orderHistoryPage.searchAndSelectOrder(orderId);
-	const orderidSummary = await orderHistoryPage.getOrderId();
-
-	expect(orderidSummary).toEqual(orderId);
-});
+    await orderHistoryPage.searchAndSelectOrder(orderId);
+    const orderidSummary = await orderHistoryPage.getOrderId();
+    expect(orderidSummary).toEqual(orderId);
+  });
+}

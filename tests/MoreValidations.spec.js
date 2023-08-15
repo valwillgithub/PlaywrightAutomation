@@ -29,7 +29,11 @@ test('Screenshot Validations', async ({ page }) => {
     .screenshot({ path: './screenshots/parcialScreenshot.png' });
   await page.locator('#hide-textbox').click();
   await page.screenshot({ path: './screenshots/fullpageScreenshot.png' });
-
   await expect(page.locator('#displayed-text')).toBeHidden();
+});
+
+test.only('Visual Testing', async ({ page }) => {
+  await page.goto('https://danube-webshop.herokuapp.com/');
+  expect(await page.screenshot()).toMatchSnapshot('original.png');
 });
 //});

@@ -21,6 +21,7 @@ test.describe('Koushik Playwright 99', () => {
     await page.fill("input[name='password']", 'letcodein');
     await page.click("button:text('LOGIN')");
     await page.pause();
+    page.on('dialog', async (alert) => {});
 
     //await page.click('text=Accept');
     //await browser.close();

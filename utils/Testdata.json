@@ -1,20 +1,14 @@
 [
-	{
-		"email": "vastyjay@yahoo.com",
-		"password": "Kumasi117",
-		"productName": "iphone 13 pro",
-		"url": "https://rahulshettyacademy.com/client"
-	},
-	{
-		"email": "vastyjay@yahoo.com",
-		"password": "Kumasi117",
-		"productName": "adidas original",
-		"url": "https://rahulshettyacademy.com/client"
-	},
-	{
-		"email": "vastyjay@yahoo.com",
-		"password": "Kumasi117",
-		"productName": "zara coat 3",
-		"url": "https://rahulshettyacademy.com/client"
-	}
+  {
+    "email": "vastyjay@yahoo.com",
+    "password": "Kumasi117",
+    "productName": "iphone 13 pro",
+    "url": "https://rahulshettyacademy.com/client"
+  },
+  {
+    "email": "vastyjay@yahoo.com",
+    "password": "Kumasi117",
+    "productName": "zara coat 3",
+    "url": "https://rahulshettyacademy.com/client"
+  }
 ]

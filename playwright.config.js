@@ -64,8 +64,8 @@ const config = {
       name: 'chrome',
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
-        viewport: { height: 928, width: 1528 },
+        headless: false,
+        viewport: { height: 828, width: 1478 },
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
         ignoreHTTPSErrors: true,
@@ -74,14 +74,15 @@ const config = {
       },
     },
     // {
-    // 	name: 'safari',
-    // 	use: {
-    // 		browserName: 'webkit',
-    // 		screenshot: 'only-on-failure',
-    // 		...devices['iPhone 13 Pro Max'],
-    // 		headless: false,
-    // 		video: 'retain-on-failure',
-    // 	},
+    //   name: 'safari',
+    //   use: {
+    //     browserName: 'webkit',
+    //     viewport: { height: 928, width: 1528 },
+    //     screenshot: 'only-on-failure',
+    //     //...devices['iPhone 13 Pro Max'],
+    //     headless: false,
+    //     video: 'retain-on-failure',
+    //   },
     // },
   ],
   // 	{

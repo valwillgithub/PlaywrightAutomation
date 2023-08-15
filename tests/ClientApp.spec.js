@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('@web Client App Add To Bag', async ({ page }) => {
+test('@web Client App Add To Bag', async ({ page }, testInfo) => {
   const email = 'vastyjay@yahoo.com';
   const productName = 'iphone 13 pro';
   await page.goto('https://rahulshettyacademy.com/client');
@@ -12,7 +12,7 @@ test('@web Client App Add To Bag', async ({ page }) => {
   const titles = await products.allTextContents();
   console.log('titles => ', titles);
   const count = await products.count();
-
+  await page.pause();
   for (let i = 0; i < count; i++) {
     if ((await products.nth(i).locator('b').textContent()) === productName) {
       //await page.waitForTimeout(2000);
@@ -25,7 +25,8 @@ test('@web Client App Add To Bag', async ({ page }) => {
   const bool = await page.locator("h3:has-text('iphone 13 pro')").isVisible();
   //expect(bool).toBe(true);
   expect(bool).toBeTruthy();
-  await page.locator('text=Checkout').click();
+  //await page.locator('text=Checkout').click();
+  await page.getByText('Checkout').click();
 
   //await page.locator('input[type="text"]').nth(1).click();
   // Fill input[type="text"] >> nth=1
@@ -50,6 +51,8 @@ test('@web Client App Add To Bag', async ({ page }) => {
       break;
     }
   }
+  // await page.pause();
+
   // Display email address
   console.log(
     await page.locator(".user__name [type='text']:nth-child(1)").textContent()

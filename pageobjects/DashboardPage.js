@@ -1,35 +1,40 @@
+const productsText = "[class='card-body'] b";
+
 export class DashboardPage {
-	constructor(page) {
-		this.page = page;
-		this.products = page.locator('.card-body');
-		this.productsText = page.locator('.card-body b');
-		this.cart = page.locator("[routerlink*='cart']");
-	}
+  //let productsText = page.locator('.card-body b');
+  //productsText = "[class='card-body'] b";
 
-	async searchProduct(productName) {
-		await this.products.first().waitFor();
-		const titles = await this.productsText.allTextContents();
-		console.log('titles => ', titles);
-		const count = await this.products.count();
+  constructor(page) {
+    this.page = page;
+    this.products = page.locator('.card-body');
+    this.cart = page.locator("[routerlink*='cart']");
+  }
 
-		for (let i = 0; i < count; i++) {
-			if (
-				(await this.products.nth(i).locator('b').textContent()) === productName
-			) {
-				//await this.page.waitForTimeout(2000);
-				await this.products.nth(i).locator('text = Add To Cart').click();
-				break;
-			}
-		}
-	}
+  async searchProduct(productName) {
+    await this.products.first().waitFor();
+    const titles = await this.page.locator(productsText).allTextContents();
+    //const titles = await this.productsText.allTextContents();
+    console.log('titles => ', titles);
+    const count = await this.products.count();
 
-	async gotoCart() {
-		await this.cart.click();
-	}
+    for (let i = 0; i < count; i++) {
+      if (
+        (await this.products.nth(i).locator('b').textContent()) === productName
+      ) {
+        //await this.page.waitForTimeout(2000);
+        await this.products.nth(i).locator('text = Add To Cart').click();
+        break;
+      }
+    }
+  }
 
-	async clickMyorders() {
-		await this.page.locator("button[routerlink*='myorders']").click();
-		await this.page.locator('tbody tr').first().waitFor();
-		//await tRows.first().waitFor();
-	}
+  async gotoCart() {
+    await this.cart.click();
+  }
+
+  async clickMyorders() {
+    await this.page.locator("button[routerlink*='myorders']").click();
+    await this.page.locator('tbody tr').first().waitFor();
+    //await tRows.first().waitFor();
+  }
 } //Class
