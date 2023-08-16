@@ -29,7 +29,7 @@ const config = {
   /* Retry on CI only */
   retries: process.env.CI ? 1 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 1,
+  workers: process.env.CI ? 1 : 3,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
   reporter: [
@@ -73,17 +73,17 @@ const config = {
         trace: 'on',
       },
     },
-    // {
-    //   name: 'safari',
-    //   use: {
-    //     browserName: 'webkit',
-    //     viewport: { height: 928, width: 1528 },
-    //     screenshot: 'only-on-failure',
-    //     //...devices['iPhone 13 Pro Max'],
-    //     headless: false,
-    //     video: 'retain-on-failure',
-    //   },
-    // },
+    {
+      name: 'safari',
+      use: {
+        browserName: 'webkit',
+        //viewport: { height: 928, width: 1528 },
+        screenshot: 'only-on-failure',
+        ...devices['iPhone 13 Pro Max'],
+        headless: false,
+        video: 'retain-on-failure',
+      },
+    },
   ],
   // 	{
   // 	name: 'firefox',
