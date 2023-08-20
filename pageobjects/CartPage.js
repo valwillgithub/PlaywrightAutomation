@@ -1,7 +1,7 @@
 //@ts-nocheck
 const { expect } = require('@playwright/test');
 
-export class CartPage {
+class CartPage {
   constructor(page) {
     this.page = page;
     this.cartProducts = page.locator('div li').first();
@@ -26,3 +26,4 @@ export class CartPage {
     await this.checkout.click();
   }
 } //Class
+module.exports = { CartPage };

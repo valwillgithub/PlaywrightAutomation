@@ -17,14 +17,16 @@
     "vsdebug": "npx playwright test tests/WebApiPart1_b.spec.js --headed",
     "valdebug": "npx playwright test tests/mobile.test.ts",
     "lint": "eslint ./",
-    "singletest": "npx playwright test --headed"
+    "singletest": "npx playwright test --headed",
+    "cucumber": "npx cucumber-js --exit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@axe-core/playwright": "^4.6.1",
-    "@playwright/test": "^1.32.1",
+    "@cucumber/cucumber": "^9.4.0",
+    "@playwright/test": "1.37",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "allure-playwright": "^2.1.0",

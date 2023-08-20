@@ -1,0 +1,10 @@
+{
+  "default": {
+    "paths": ["tests/features/*.feature"],
+    "dryRun": false,
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    },
+    "require": ["tests/stepDefinitions/*.js"]
+  }
+}

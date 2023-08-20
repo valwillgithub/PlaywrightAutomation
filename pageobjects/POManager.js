@@ -4,31 +4,32 @@ const { OrderHistoryPage } = require('./OrderHistoryPage');
 const { PaymentPage } = require('./PaymentPage');
 const { CartPage } = require('./CartPage');
 
-export class POManager {
-	constructor(page) {
-		this.page = page;
-		this.loginPage = new LoginPage(this.page);
-		this.dashboardPage = new DashboardPage(this.page);
-		this.orderHistoryPage = new OrderHistoryPage(this.page);
-		this.paymentPage = new PaymentPage(this.page);
-		this.cartPage = new CartPage(this.page);
-	}
+class POManager {
+  constructor(page) {
+    this.page = page;
+    this.loginPage = new LoginPage(this.page);
+    this.dashboardPage = new DashboardPage(this.page);
+    this.orderHistoryPage = new OrderHistoryPage(this.page);
+    this.paymentPage = new PaymentPage(this.page);
+    this.cartPage = new CartPage(this.page);
+  }
 
-	getLoginPage() {
-		return this.loginPage;
-	}
+  getLoginPage() {
+    return this.loginPage;
+  }
 
-	getDashboardPage() {
-		return this.dashboardPage;
-	}
+  getDashboardPage() {
+    return this.dashboardPage;
+  }
 
-	getOrderHistoryPage() {
-		return this.orderHistoryPage;
-	}
-	getPaymentPage() {
-		return this.paymentPage;
-	}
-	getCartPage() {
-		return this.cartPage;
-	}
+  getOrderHistoryPage() {
+    return this.orderHistoryPage;
+  }
+  getPaymentPage() {
+    return this.paymentPage;
+  }
+  getCartPage() {
+    return this.cartPage;
+  }
 } //Class
+module.exports = { POManager };

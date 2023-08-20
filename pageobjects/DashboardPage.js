@@ -1,6 +1,6 @@
 const productsText = "[class='card-body'] b";
 
-export class DashboardPage {
+class DashboardPage {
   //let productsText = page.locator('.card-body b');
   //productsText = "[class='card-body'] b";
 
@@ -38,3 +38,4 @@ export class DashboardPage {
     //await tRows.first().waitFor();
   }
 } //Class
+module.exports = { DashboardPage };
