@@ -46,7 +46,7 @@ const config = {
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Maximum ime each action such as `click()` can take. Defaults to 0 (no limit). */
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
@@ -73,17 +73,17 @@ const config = {
         trace: 'on',
       },
     },
-    {
-      name: 'safari',
-      use: {
-        browserName: 'webkit',
-        //viewport: { height: 928, width: 1528 },
-        screenshot: 'only-on-failure',
-        ...devices['iPhone 13 Pro Max'],
-        headless: false,
-        video: 'retain-on-failure',
-      },
-    },
+    // {
+    //   name: 'safari',
+    //   use: {
+    //     browserName: 'webkit',
+    //     //viewport: { height: 928, width: 1528 },
+    //     screenshot: 'only-on-failure',
+    //     ...devices['iPhone 13 Pro Max'],
+    //     headless: false,
+    //     video: 'retain-on-failure',
+    //   },
+    // },
   ],
   // 	{
   // 	name: 'firefox',

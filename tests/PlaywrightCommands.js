@@ -21,6 +21,11 @@ npx playwright codegen Record and Play feature
 npx playwright codegen http://google.com
 Auto generate tests with Codegen.
 
+How to save and load authenticated state
+npx playwright codegen --save-storage=ghanaweb.json
+npx playwright codegen --load-storage=authentication.json convas.com
+
+
 npx playwright test UIBasicstest --debug
 Runs the tests in a specific file in debug mode
 
@@ -38,6 +43,10 @@ To use Record and Play feature
 
 npx playwright show-report
 To view playwright report.
+
+
+npx playwright show-trace trace.zip
+To open trace viewer
 
 npm run test -- /src/tests/GetAllproducts.spec.js
 Pass a parameter to npm script in package.json
